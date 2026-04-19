@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy — Saurabh Tripathi</title>
+  <meta name="description" content="How saurabhtripathi.in handles cookies, analytics, and personal data. Opt-out instructions and contact for data requests." />
+  <link rel="canonical" href="https://saurabhtripathi.in/privacy.html" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lato:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+
+  <!-- Phosphor icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow-ur" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 256 256" fill="currentColor"><path d="M128,16a88.1,88.1,0,0,0-88,88c0,75.3,80,132.17,83.41,134.55a8,8,0,0,0,9.18,0C136,236.17,216,179.3,216,104A88.1,88.1,0,0,0,128,16Zm0,206.8C109.74,209.85,56,166.2,56,104a72,72,0,0,1,144,0C200,166.2,146.26,209.85,128,222.8ZM128,72a32,32,0,1,0,32,32A32,32,0,0,0,128,72Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,120Z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82ZM208,64,128,137.35,48,64Z"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208Z"/></symbol>
+      <symbol id="i-newspaper" viewBox="0 0 256 256" fill="currentColor"><path d="M224,56H48A16,16,0,0,0,32,72V192a24,24,0,0,0,24,24H216a24,24,0,0,0,24-24V72A16,16,0,0,0,224,56ZM56,200a8,8,0,0,1-8-8V72H224V192a8,8,0,0,1-8,8ZM80,104a8,8,0,0,1,8-8H184a8,8,0,0,1,0,16H88A8,8,0,0,1,80,104Zm0,32a8,8,0,0,1,8-8H184a8,8,0,0,1,0,16H88A8,8,0,0,1,80,136Zm0,32a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H88A8,8,0,0,1,80,168Z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-64a12,12,0,1,1-12-12A12,12,0,0,1,112,144Zm60,0a12,12,0,1,1-12-12A12,12,0,0,1,172,144Zm-60,40a12,12,0,1,1-12-12A12,12,0,0,1,112,184Zm60,0a12,12,0,1,1-12-12A12,12,0,0,1,172,184Z"/></symbol>
+    </defs>
+  </svg>
+</head>
+<body class="v4">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Ticker -->
+  <div class="ticker" role="status" aria-label="Availability">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+      <div class="ticker-left">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Currently taking a handful of new Opus Momentum clients for Q2</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" role="banner">
+    <nav class="nav container" aria-label="Primary">
+      <a class="nav-brand" href="/" aria-label="Saurabh Tripathi — home">
+        <img src="/assets/img/logo/wordmark.png" alt="Saurabh Tripathi" width="120" height="30" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/work.html">Work</a></li>
+        <li><a href="/opus-momentum.html">Opus Momentum</a></li>
+        <li><a href="/writing.html">Writing</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a class="btn btn-primary cta" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">Book a call <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
+      </ul>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu">
+      <a href="/about.html">About</a>
+      <a href="/work.html">Work</a>
+      <a href="/opus-momentum.html">Opus Momentum</a>
+      <a href="/writing.html">Writing</a>
+      <a href="/contact.html">Contact</a>
+      <a class="btn btn-primary btn-lg" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">Book a call</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- BOLD HERO -->
+    <section class="bold-hero">
+      <div class="container">
+        <span class="bg-num" aria-hidden="true">P.</span>
+        <div class="tag">Privacy · The short version</div>
+        <h1 class="title">A short privacy <span class="accent">notice</span>.</h1>
+        <p class="lede">This site is a personal website. It collects the minimum needed to know that it is being read, and nothing more.</p>
+        <div class="meta">
+          <div><span>Version</span><strong>1</strong></div>
+          <div><span>Last updated</span><strong>April 2026</strong></div>
+          <div><span>Analytics</span><strong>GA4, opt-in only</strong></div>
+          <div><span>Trackers</span><strong>None beyond GA4</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm">
+      <div class="narrow">
+        <div class="prose">
+          <h2>What is collected</h2>
+          <p>If you accept the cookie banner, this site loads Google Analytics 4 to record anonymous, aggregated visit statistics — page views, approximate country, the device category, and the page you came from. IP addresses are anonymized by configuration. No personally identifying information is stored. If you decline, the analytics script is not loaded at all, and nothing is sent.</p>
+
+          <h2>What is not collected</h2>
+          <p>No marketing pixels. No ad retargeting. No Facebook Pixel, no LinkedIn Insight Tag, no third-party trackers beyond Google Analytics. The zcal embed on the Contact page is loaded from zcal.co — its data handling is governed by zcal's privacy policy.</p>
+
+          <h2>Cookies</h2>
+          <p>Your consent choice is stored in your browser's <code>localStorage</code> under the key <code>st_consent_v1</code>. Google Analytics, if loaded, sets its own cookies (<code>_ga</code>, <code>_ga_&lt;id&gt;</code>). Clearing your browser storage resets both.</p>
+
+          <h2>How to opt out</h2>
+          <p>Clear the <code>st_consent_v1</code> value in your browser's site storage and reload — the banner will show again. Or use a browser extension that blocks Google Analytics. Or enable Do Not Track in your browser; while this site doesn't parse that signal directly, most privacy extensions do.</p>
+
+          <h2>Your rights</h2>
+          <p>Under India's Digital Personal Data Protection Act (DPDP) and similar laws in the EU and UK, you can request a copy of any personal data held about you, or ask for it to be deleted. Since this site doesn't store personal data beyond anonymous GA4 aggregates, there is usually nothing to return. If you want to be sure, email <a class="inline-link" href="mailto:contact@saurabhtripathi.in">contact@saurabhtripathi.in</a>.</p>
+
+          <h2>Hosting</h2>
+          <p>The site is hosted on GitHub Pages, which may log request metadata (IP, user agent) as part of normal CDN operation. See GitHub's privacy statement for details.</p>
+
+          <h2>Changes</h2>
+          <p>If this notice changes in any material way, the version below will be bumped.</p>
+
+          <p class="muted" style="margin-top:3em;">Version 1 — last updated April 2026.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-close">
+        <p class="statement">Make work that <em>compounds.</em></p>
+        <div class="cta-col">
+          <a href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener" class="f-cta">
+            <span>Start a conversation</span>
+            <span class="chip" aria-hidden="true"><svg width="14" height="14"><use href="#i-arrow-ur"/></svg></span>
+          </a>
+          <p class="cta-note">30 min · zcal · no slides</p>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="/assets/img/logo/wordmark.png" alt="Saurabh Tripathi" width="140" height="36" />
+          <p>Digital marketer. Builder. Founder of Opus Momentum. Based in Bhopal, working across time zones.</p>
+          <p class="avail"><span class="dot" aria-hidden="true"></span> Taking on 1 new project for Q3 2026</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="f-label">Site</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/work.html">Work</a></li>
+            <li><a href="/opus-momentum.html">Opus Momentum</a></li>
+            <li><a href="/writing.html">Writing</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="f-label">Contact</h4>
+          <ul>
+            <li><a href="mailto:saurabh@opusmomentum.com">saurabh@opusmomentum.com</a></li>
+            <li><a href="mailto:contact@saurabhtripathi.in">contact@saurabhtripathi.in</a></li>
+            <li><a href="tel:+919238175836">+91 92381 75836</a></li>
+            <li><span style="color:rgba(255,255,255,0.5);">Bhopal, India</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="f-label">Elsewhere</h4>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/saurabhtripathionline/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/newsletters/building-momentum-7291532655647436800/" target="_blank" rel="noopener">Building Momentum</a></li>
+            <li><a href="https://opusmomentum.com" target="_blank" rel="noopener">opusmomentum.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="colophon">
+        <span>&copy; 2026 Saurabh Tripathi</span>
+        <span class="sep">·</span>
+        <span>Opus Momentum Digital LLP</span>
+        <span class="sep">·</span>
+        <span>Built plain, hosted on GitHub Pages</span>
+        <span class="sep">·</span>
+        <span><a href="/privacy.html">Privacy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="/assets/js/main.js"></script>
+  <script defer src="/assets/js/motion.js"></script>
+  <script defer src="/assets/js/cookie-banner.js"></script>
+</body>
+</html>
