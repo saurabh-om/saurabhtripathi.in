@@ -56,6 +56,18 @@ Open http://localhost:8000.
    - **CNAME** for `www` → `saurabhtripathi.github.io`
 5. Once DNS resolves, enable "Enforce HTTPS" in Settings → Pages.
 
+## Writing (Building Momentum)
+
+Every newsletter issue lives as a Markdown file in `_writing/` (`NN-slug.md`, with `title`, `date` and `source` above a `---` line). Jekyll skips underscore folders, so these sources are not published.
+
+To add an issue: drop a new `13-some-slug.md` in `_writing/`, then run
+
+```bash
+python3 build-writing.py
+```
+
+It writes `writing/<slug>.html`, refreshes the archive list in `writing.html` and the essay entries in `sitemap.xml`.
+
 ## Before going live
 
 - [ ] Replace the GA4 Measurement ID placeholder (`G-XXXXXXXXXX`) in `assets/js/cookie-banner.js`.

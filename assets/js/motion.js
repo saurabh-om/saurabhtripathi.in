@@ -98,6 +98,11 @@
       }
       requestAnimationFrame(tick);
     }
+    // The real value ships in the HTML so crawlers and no-JS readers see it;
+    // reset to zero only when we are about to animate.
+    if (!prefersReduced) counts.forEach(function (el) {
+      el.textContent = (el.getAttribute('data-prefix') || '') + '0' + (el.getAttribute('data-suffix') || '');
+    });
     if (!('IntersectionObserver' in window)) { counts.forEach(run); return; }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
