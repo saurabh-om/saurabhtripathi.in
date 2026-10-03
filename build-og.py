@@ -2,94 +2,81 @@
 """Compose the Open Graph / Twitter social preview image.
 
 Output: assets/img/og/og-image.png at 1200x630.
+Uses the site's self-hosted fonts, so it runs anywhere Pillow does.
 """
 from PIL import Image, ImageDraw, ImageFont
 import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-PORTRAIT = os.path.join(ROOT, "assets/img/portrait/saurabh-1200.jpg")
+PORTRAIT = os.path.join(ROOT, "assets/img/portrait/saurabh-sticker-1200.jpg")
 ARROW = os.path.join(ROOT, "assets/img/logo/arrow.png")
+ARCHIVO = os.path.join(ROOT, "assets/fonts/archivo-latin.woff2")
+GEIST = os.path.join(ROOT, "assets/fonts/geist-latin.woff2")
 OUT = os.path.join(ROOT, "assets/img/og/og-image.png")
 
 W, H = 1200, 630
-BG = (250, 247, 242)   # #FAF7F2 cream
-INK = (26, 26, 26)     # #1A1A1A
-MUTED = (107, 104, 98) # #6B6862
-ACCENT = (255, 117, 31) # #FF751F
+BG = (14, 14, 14)        # #0E0E0E
+FG = (242, 239, 233)     # #F2EFE9
+MUTED = (154, 149, 141)  # #9A958D
+LINE = (52, 51, 49)
+ACCENT = (255, 117, 31)  # #FF751F
+LEFT = 64
 
-FONT_SERIF = "/System/Library/Fonts/NewYork.ttf"
-FONT_SERIF_ITALIC = "/System/Library/Fonts/NewYorkItalic.ttf"
-FONT_SANS = "/System/Library/Fonts/Helvetica.ttc"
+
+def font(path, size, weight, width=None):
+    f = ImageFont.truetype(path, size)
+    axes = [weight] if width is None else [weight, width]
+    f.set_variation_by_axes(axes)
+    return f
+
+
+def tracked(d, xy, text, f, fill, tracking):
+    """Draw text with letter-spacing, keeping the font's own kerning."""
+    x, y = xy
+    for i, ch in enumerate(text):
+        d.text((x + f.getlength(text[:i]) + i * tracking, y), ch, font=f, fill=fill)
+
 
 canvas = Image.new("RGB", (W, H), BG)
 
-# --- Left column: portrait, cropped to a tall rectangle
+# Portrait on the right, anchored to the bottom edge. Its background is
+# already graded to the page tone, so it sits on the canvas without a frame.
 port = Image.open(PORTRAIT).convert("RGB")
-# Center-crop to 420x520 from a square source
-target_w, target_h = 420, 520
-ratio = max(target_w / port.width, target_h / port.height)
-new_w, new_h = int(port.width * ratio), int(port.height * ratio)
-port = port.resize((new_w, new_h), Image.LANCZOS)
-# center crop, biased upward so the face stays in frame
-left = (new_w - target_w) // 2
-top = max(0, int((new_h - target_h) * 0.3))
-port = port.crop((left, top, left + target_w, top + target_h))
-
-# Soft rounded corners via a mask
-mask = Image.new("L", (target_w, target_h), 0)
-md = ImageDraw.Draw(mask)
-md.rounded_rectangle((0, 0, target_w, target_h), radius=10, fill=255)
-# Paste portrait with a 14px orange accent frame behind
-frame_pad = 14
-# Accent frame (offset to bottom-right slightly)
-frame_x, frame_y = 78, 60
-accent_layer = Image.new("RGBA", (target_w, target_h), (0, 0, 0, 0))
-ad = ImageDraw.Draw(accent_layer)
-ad.rounded_rectangle((0, 0, target_w, target_h), radius=10, outline=ACCENT, width=3)
-canvas.paste(accent_layer, (frame_x + frame_pad, frame_y + frame_pad), accent_layer)
-canvas.paste(port, (frame_x, frame_y), mask)
-
-# --- Right column: text
-right_x = 560
-# Arrow mark (small, accent color) in top-right
-try:
-    arrow = Image.open(ARROW).convert("RGBA")
-    arrow.thumbnail((56, 56), Image.LANCZOS)
-    canvas.paste(arrow, (W - 56 - 60, 48), arrow)
-except Exception:
-    pass
+size = 640
+port = port.resize((size, size), Image.LANCZOS)
+canvas.paste(port, (W - size + 40, H - size + 40))
 
 d = ImageDraw.Draw(canvas)
 
-# Eyebrow
-try:
-    eyebrow = ImageFont.truetype(FONT_SANS, 18, index=0)
-except Exception:
-    eyebrow = ImageFont.load_default()
-d.text((right_x, 70), "SAURABHTRIPATHI.IN", font=eyebrow, fill=ACCENT, spacing=2)
+# Arrow mark, top right
+arrow = Image.open(ARROW).convert("RGBA")
+arrow.thumbnail((44, 44), Image.LANCZOS)
+canvas.paste(arrow, (W - 44 - 56, 52), arrow)
 
-# Name — large serif
-title_font = ImageFont.truetype(FONT_SERIF, 78)
-d.text((right_x, 110), "Saurabh Tripathi", font=title_font, fill=INK)
+# Label
+tracked(d, (LEFT, 62), "SAURABHTRIPATHI.IN", font(GEIST, 17, 600), ACCENT, 1.2)
 
-# Tagline — serif italic
-tag_font = ImageFont.truetype(FONT_SERIF_ITALIC, 34)
-d.text((right_x, 212), "Digital marketer. Builder.", font=tag_font, fill=INK)
-d.text((right_x, 254), "Founder of Opus Momentum.", font=tag_font, fill=INK)
+# Name, two lines
+name = font(ARCHIVO, 112, 800, 100)
+tr = -0.045 * 112
+tracked(d, (LEFT - 4, 104), "Saurabh", name, FG, tr)
+tracked(d, (LEFT - 4, 206), "Tripathi", name, FG, tr)
 
-# Lede — sans
-lede_font = ImageFont.truetype(FONT_SANS, 22, index=0)
-lede_line1 = "Ten years of figuring out what actually moves"
-lede_line2 = "numbers for businesses online."
-d.text((right_x, 340), lede_line1, font=lede_font, fill=MUTED)
-d.text((right_x, 372), lede_line2, font=lede_font, fill=MUTED)
+# Tagline
+tag = font(GEIST, 30, 500)
+d.text((LEFT, 350), "Digital marketer. Builder.", font=tag, fill=FG)
+d.text((LEFT, 390), "Founder of Opus Momentum.", font=tag, fill=FG)
+
+# Lede
+lede = font(GEIST, 21, 400)
+d.text((LEFT, 452), "Ten years of figuring out what actually moves", font=lede, fill=MUTED)
+d.text((LEFT, 482), "numbers for businesses online.", font=lede, fill=MUTED)
 
 # Bottom rule + metadata
-d.line([(right_x, H - 110), (W - 60, H - 110)], fill=(26, 26, 26, 60), width=1)
-footer_font = ImageFont.truetype(FONT_SANS, 18, index=0)
-d.text((right_x, H - 84), "Bhopal · India · Working across time zones", font=footer_font, fill=MUTED)
+d.line([(LEFT, H - 92), (LEFT + 520, H - 92)], fill=LINE, width=1)
+d.rectangle([LEFT, H - 66, LEFT + 8, H - 58], fill=ACCENT)
+d.text((LEFT + 20, H - 72), "Bhopal · India · Working across time zones", font=font(GEIST, 17, 400), fill=MUTED)
 
-# Save
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 canvas.save(OUT, "PNG", optimize=True)
 print(f"Wrote {OUT} ({os.path.getsize(OUT)} bytes)")
