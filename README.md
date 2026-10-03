@@ -20,18 +20,18 @@ Plain HTML + CSS + JS. No build step. Deployed on GitHub Pages at the custom dom
 ├── robots.txt
 ├── sitemap.xml
 └── assets/
-    ├── css/styles.css
+    ├── css/studio.css      # The whole design system
+    ├── fonts/              # Archivo + Geist (woff2, self-hosted, OFL)
     ├── js/
-    │   ├── main.js         # Nav scroll, mobile menu, scroll-reveal, marquee
-    │   ├── motion.js       # Hero word reveal, portrait parallax, cursor follower
+    │   ├── studio.js       # Mobile menu, header state, reveals, counters
     │   └── cookie-banner.js
     └── img/
-        ├── portrait/       # 400/800/1200 JPG
-        ├── logo/           # Wordmark + arrow
+        ├── portrait/       # Originals plus *-bw / saurabh-sticker-* grades used on the site
+        ├── logo/           # wordmark.png (light bg), wordmark-light.png (dark bg), arrow
         ├── favicon/        # 32, 192, 512, apple-touch-icon
         ├── og/             # og-image.png (1200x630)
         ├── testimonials/   # 7 square photos, 400x400
-        └── clients/        # 43 client logos, 600w PNG
+        └── clients/        # 43 colour logos; mono/ holds the trimmed white versions the site uses
 ```
 
 ## Local preview
@@ -76,7 +76,8 @@ It writes `writing/<slug>.html`, refreshes the archive list in `writing.html` an
 
 ## Stack / design
 
-- **Type:** Fraunces (display) + Inter (body), Google Fonts.
-- **Palette:** cream `#FAF7F2` background, ink `#1A1A1A` text, accent `#FF751F` (logo orange).
-- **Motion:** hero text reveal, portrait parallax, CTA cursor follower, logo marquee. All gated behind `prefers-reduced-motion`.
+- **Type:** Archivo 800 (display) + Geist (body), self-hosted from `assets/fonts/`.
+- **Palette:** near-black `#0E0E0E` background, warm white `#F2EFE9` text, one accent `#FF751F` (logo orange). Photos are graded black and white.
+- **Shape:** square corners everywhere, hairline rules instead of cards.
+- **Motion:** headline reveal, fade-up on scroll, number counters. No scroll listeners; all of it is skipped under `prefers-reduced-motion`.
 - **Analytics:** GA4, loaded only after explicit consent via a cookie banner.

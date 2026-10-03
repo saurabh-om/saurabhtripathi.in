@@ -90,15 +90,14 @@ def fmt(d):
 
 def shell():
     page = (ROOT / "writing.html").read_text(encoding="utf-8")
-    head_end = page.index("  <!-- Phosphor icon sprite -->")
-    sprite_to_main = page[head_end:page.index('  <main id="main">')]
+    head_links = page[page.index('  <link rel="icon"'):page.index("</head>")]
+    body_to_main = page[page.index("</head>"):page.index('  <main id="main">')]
     after_main = page[page.index("  </main>") + len("  </main>\n"):]
-    head_links = page[page.index('  <link rel="icon"'):head_end]
-    return head_links, sprite_to_main, after_main
+    return head_links, body_to_main, after_main
 
 
 def article_page(it, prev, nxt, parts):
-    head_links, sprite_to_main, after_main = parts
+    head_links, body_to_main, after_main = parts
     url = f"{SITE}/writing/{it['slug']}.html"
     title = html.escape(it["title"])
     desc = html.escape(it["excerpt"])
@@ -119,10 +118,10 @@ def article_page(it, prev, nxt, parts):
     }
     nav = []
     if prev:
-        nav.append(f'<a class="issue-nav-link prev" href="/writing/{prev["slug"]}.html"><span>Older</span><strong>{html.escape(prev["title"])}</strong></a>')
+        nav.append(f'<a class="prev" href="/writing/{prev["slug"]}.html"><span>Older</span><strong>{html.escape(prev["title"])}</strong></a>')
     if nxt:
-        nav.append(f'<a class="issue-nav-link next" href="/writing/{nxt["slug"]}.html"><span>Newer</span><strong>{html.escape(nxt["title"])}</strong></a>')
-    sprite_to_main = sprite_to_main.replace('class="is-active" href="/writing.html"', 'class="is-active" href="/writing.html" aria-current="page"')
+        nav.append(f'<a class="next" href="/writing/{nxt["slug"]}.html"><span>Newer</span><strong>{html.escape(nxt["title"])}</strong></a>')
+    arrow = '<svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>'
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,54 +145,51 @@ def article_page(it, prev, nxt, parts):
   <meta name="twitter:description" content="{desc}" />
   <meta name="twitter:image" content="{SITE}/assets/img/og/og-image.png" />
 {head_links}  <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+{body_to_main}  <main id="main">
 
-{sprite_to_main}  <main id="main">
-
-    <section class="bold-hero issue-hero">
-      <div class="container">
-        <span class="bg-num" aria-hidden="true">{it['num']:02d}</span>
-        <div class="tag"><a href="/writing.html">Building Momentum</a> · Issue {it['num']:02d}</div>
-        <h1 class="title">{title}</h1>
-        <div class="meta">
-          <div><span>Published</span><strong><time datetime="{it['date'].isoformat()}">{fmt(it['date'])}</time></strong></div>
-          <div><span>Reading time</span><strong>{it['minutes']} min</strong></div>
-          <div><span>Written by</span><strong>Saurabh Tripathi</strong></div>
+    <section class="page-hero essay-hero">
+      <div class="wrap" data-reveal>
+        <div class="hero-meta label">
+          <span><a href="/writing.html">Building Momentum</a> · Issue {it['num']:02d}</span>
         </div>
+        <h1 class="display rise">{title}</h1>
+        <dl class="facts three rise" style="--d:200ms">
+          <div><dt>Published</dt><dd><time datetime="{it['date'].isoformat()}">{fmt(it['date'])}</time></dd></div>
+          <div><dt>Reading time</dt><dd>{it['minutes']} min</dd></div>
+          <div><dt>Written by</dt><dd>Saurabh Tripathi</dd></div>
+        </dl>
       </div>
     </section>
 
-    <section class="section-sm">
-      <div class="narrow">
-        <article class="prose issue-body">
+    <section class="section" style="border-top:0;padding-top:0">
+      <div class="wrap">
+        <article class="essay">
 {render(it['body'])}
         </article>
 
-        <aside class="issue-origin">
+        <aside class="origin">
           <p>First published in <strong>Building Momentum</strong>, Saurabh's newsletter on LinkedIn.</p>
-          <div class="issue-origin-actions">
-            <a class="btn btn-primary" href="{NEWSLETTER}" target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg> Subscribe on LinkedIn</a>
-            <a class="btn btn-ghost" href="{html.escape(it['source'])}" target="_blank" rel="noopener">Comment on the original <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+          <div class="acts">
+            <a class="btn" href="{NEWSLETTER}" target="_blank" rel="noopener">Subscribe on LinkedIn {arrow}</a>
+            <a class="link-arrow" href="{html.escape(it['source'])}" target="_blank" rel="noopener">Comment on the original {arrow}</a>
           </div>
         </aside>
 
         <nav class="issue-nav" aria-label="More issues">
           {chr(10).join('          ' + n for n in nav).strip()}
         </nav>
-        <p class="issue-all"><a href="/writing.html">All issues →</a></p>
+        <p class="issue-all"><a class="link-arrow" href="/writing.html">All issues {arrow}</a></p>
       </div>
     </section>
 
-    <!-- CTA BAND -->
-    <section class="cta-band">
-      <div class="container">
-        <div class="eyebrow">Got something to talk about</div>
-        <h2>Got something to <span class="italic-serif">talk about</span>?</h2>
-        <p>Thirty minutes, direct with Saurabh. No slides, no sales pitch.</p>
-        <a class="cta-btn" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">
-          Book a 30-min call
-          <span class="chip" aria-hidden="true"><svg><use href="#i-arrow-ur"/></svg></span>
-        </a>
-        <div class="small-note">Thirty minutes <span class="dot"></span> Direct with Saurabh <span class="dot"></span> No slides</div>
+    <section class="closing" aria-labelledby="closing-h">
+      <div class="wrap" data-reveal>
+        <h2 id="closing-h" class="display sm rise">Got something to <span class="hl">talk about</span>?</h2>
+        <p class="lede rise">Thirty minutes, direct with Saurabh. No slides, no sales pitch.</p>
+        <div class="closing-row rise">
+          <a class="btn" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">Book a 30-min call {arrow}</a>
+          <span class="label">Thirty minutes · Direct with Saurabh · No slides</span>
+        </div>
       </div>
     </section>
 
@@ -204,17 +200,15 @@ def article_page(it, prev, nxt, parts):
 def archive(items):
     rows = []
     for it in items:
-        rows.append(f"""          <li>
-            <a class="issue-row" href="/writing/{it['slug']}.html">
-              <span class="ir-num">{it['num']:02d}</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="{it['date'].isoformat()}">{fmt(it['date'])}</time> · {it['minutes']} min read</span>
-                <span class="ir-title">{html.escape(it['title'])}</span>
-                <span class="ir-excerpt">{html.escape(it['excerpt'])}</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>""")
+        rows.append(f"""          <li><a href="/writing/{it['slug']}.html">
+            <span class="n">{it['num']:02d}</span>
+            <span class="main">
+              <span class="meta"><time datetime="{it['date'].isoformat()}">{fmt(it['date'])}</time> · {it['minutes']} min read</span>
+              <h3>{html.escape(it['title'])}</h3>
+              <span class="ex">{html.escape(it['excerpt'])}</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>""")
     return "\n".join(rows)
 
 

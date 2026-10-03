@@ -20,362 +20,275 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon/favicon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lato:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-
-  <!-- Phosphor icon sprite -->
+  <meta name="theme-color" content="#0e0e0e" />
+  <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/css/studio.css" />
+  <script>document.documentElement.classList.add('js')</script>
+<!-- HEAD:END -->
+</head>
+<body>
+  <!-- Phosphor icons (regular) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <symbol id="i-arrow-ur" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
+      <symbol id="i-arrow-ul" viewBox="0 0 256 256" fill="currentColor"><path d="M197.66,69.66,83.31,184H168a8,8,0,0,1,0,16H64a8,8,0,0,1-8-8V88a8,8,0,0,1,16,0v84.69L186.34,58.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
       <symbol id="i-pin" viewBox="0 0 256 256" fill="currentColor"><path d="M128,16a88.1,88.1,0,0,0-88,88c0,75.3,80,132.17,83.41,134.55a8,8,0,0,0,9.18,0C136,236.17,216,179.3,216,104A88.1,88.1,0,0,0,128,16Zm0,206.8C109.74,209.85,56,166.2,56,104a72,72,0,0,1,144,0C200,166.2,146.26,209.85,128,222.8ZM128,72a32,32,0,1,0,32,32A32,32,0,0,0,128,72Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,120Z"/></symbol>
       <symbol id="i-linkedin" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></symbol>
       <symbol id="i-mail" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82ZM208,64,128,137.35,48,64Z"/></symbol>
       <symbol id="i-phone" viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></symbol>
-      <symbol id="i-sparkle" viewBox="0 0 256 256" fill="currentColor"><path d="M197.58,129.06l-51.61-19-19-51.65a15.92,15.92,0,0,0-29.88,0L78.07,110l-51.65,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0l19-51.61,51.65-19a15.92,15.92,0,0,0,0-29.88ZM140.39,163a15.87,15.87,0,0,0-9.43,9.43l-19,51.46L93,172.39A15.87,15.87,0,0,0,83.61,163h0L32.15,144l51.46-19A15.87,15.87,0,0,0,93,115.61l19-51.46,19,51.46a15.87,15.87,0,0,0,9.43,9.43l51.46,19Z"/></symbol>
       <symbol id="i-newspaper" viewBox="0 0 256 256" fill="currentColor"><path d="M224,56H48A16,16,0,0,0,32,72V192a24,24,0,0,0,24,24H216a24,24,0,0,0,24-24V72A16,16,0,0,0,224,56ZM56,200a8,8,0,0,1-8-8V72H224V192a8,8,0,0,1-8,8ZM80,104a8,8,0,0,1,8-8H184a8,8,0,0,1,0,16H88A8,8,0,0,1,80,104Zm0,32a8,8,0,0,1,8-8H184a8,8,0,0,1,0,16H88A8,8,0,0,1,80,136Zm0,32a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H88A8,8,0,0,1,80,168Z"/></symbol>
-      <symbol id="i-calendar" viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-64a12,12,0,1,1-12-12A12,12,0,0,1,112,144Zm60,0a12,12,0,1,1-12-12A12,12,0,0,1,172,144Zm-60,40a12,12,0,1,1-12-12A12,12,0,0,1,112,184Zm60,0a12,12,0,1,1-12-12A12,12,0,0,1,172,184Z"/></symbol>
-      <symbol id="i-book" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h64a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64Z"/></symbol>
-      <symbol id="i-briefcase" viewBox="0 0 256 256" fill="currentColor"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm120,24V200H40V72Z"/></symbol>
-      <symbol id="i-check" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm49.53,85.16-58.59,56a8,8,0,0,1-11,0L83.06,141.16a8,8,0,1,1,11-11.61L113.47,148l53.09-50.77a8,8,0,0,1,11,11.58Z"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></symbol>
     </defs>
   </svg>
-</head>
-<body class="v4">
+
   <a class="skip-link" href="#main">Skip to content</a>
+  <span data-header-sentinel style="position:absolute;top:0;left:0;width:1px;height:24px" aria-hidden="true"></span>
 
-  <!-- Ticker -->
-  <div class="ticker" role="status" aria-label="Availability">
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
-      <div class="ticker-left">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Opus Momentum is open for new projects</span>
-      </div>
-    </div>
-  </div>
-
-  <header class="site-header" role="banner">
-    <nav class="nav container" aria-label="Primary">
-      <a class="nav-brand" href="/" aria-label="Saurabh Tripathi — home">
-        <img src="/assets/img/logo/wordmark.png" alt="Saurabh Tripathi" width="120" height="30" />
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="nav-brand" href="/" aria-label="Saurabh Tripathi, home">
+        <img src="/assets/img/logo/wordmark-light.png" alt="Saurabh Tripathi" width="480" height="122" />
       </a>
       <ul class="nav-links">
         <li><a href="/about.html">About</a></li>
         <li><a href="/work.html">Work</a></li>
         <li><a href="/opus-momentum.html">Opus Momentum</a></li>
-        <li><a class="is-active" href="/writing.html">Writing</a></li>
+        <li><a href="/writing.html" aria-current="page">Writing</a></li>
         <li><a href="/contact.html">Contact</a></li>
-        <li><a class="btn btn-primary cta" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">Book a call <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
+        <li><a class="btn btn-sm" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">Book a call <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
       </ul>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span class="nav-toggle-bars" aria-hidden="true"></span>
-      </button>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
     </nav>
-    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu">
-      <a href="/about.html">About</a>
-      <a href="/work.html">Work</a>
-      <a href="/opus-momentum.html">Opus Momentum</a>
-      <a href="/writing.html">Writing</a>
-      <a href="/contact.html">Contact</a>
-      <a class="btn btn-primary btn-lg" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">Book a call</a>
-    </div>
   </header>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/about.html">About</a>
+    <a href="/work.html">Work</a>
+    <a href="/opus-momentum.html">Opus Momentum</a>
+    <a href="/writing.html" aria-current="page">Writing</a>
+    <a href="/contact.html">Contact</a>
+    <a class="btn" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">Book a call <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+  </div>
 
   <main id="main">
-
-    <!-- BOLD HERO -->
-    <section class="bold-hero">
-      <div class="container">
-        <span class="bg-num" aria-hidden="true">BM</span>
-        <div class="tag">Writing · The Building Momentum newsletter</div>
-        <h1 class="title">Building <span class="accent">Momentum</span>.</h1>
-        <p class="lede">A newsletter on marketing, business, and the parts of running an agency that most people do not talk about in public. It goes out when there is something worth saying — no schedule, no filler.</p>
-        <div class="meta">
-          <div><span>Cadence</span><strong>When there's something to say</strong></div>
-          <div><span>Topics</span><strong>Marketing · Agency · Business</strong></div>
-          <div><span>Written by</span><strong>Saurabh Tripathi</strong></div>
+    <section class="page-hero ">
+      <div class="wrap" data-reveal>
+        <div class="hero-meta label">
+          <span>Writing · The Building Momentum newsletter</span>
+          <span class="open">Opus Momentum is open for new projects</span>
         </div>
+        <h1 class="display rise">Building <span class="hl">Momentum</span>.</h1>
+        <p class="lede rise" style="--d:180ms">A newsletter on marketing, business, and the parts of running an agency that most people do not talk about in public. It goes out when there is something worth saying — no schedule, no filler.</p>
+        <dl class="facts three rise" style="--d:300ms">
+          <div><dt>Cadence</dt><dd>When there's something to say</dd></div>
+          <div><dt>Topics</dt><dd>Marketing · Agency · Business</dd></div>
+          <div><dt>Written by</dt><dd>Saurabh Tripathi</dd></div>
+        </dl>
       </div>
     </section>
-
-    <!-- ARCHIVE -->
-    <section class="section-sm issue-archive">
-      <div class="container">
-        <div class="ia-head">
-          <div class="ch-label">Every issue</div>
-          <p>Newest first. Each one first went out on LinkedIn.</p>
+    <section class="section" style="border-top:0;padding-top:0" aria-labelledby="archive-h">
+      <div class="wrap" data-reveal>
+        <div class="cluster-head rise">
+          <span class="label">Every issue</span>
+          <h2 id="archive-h">Newest first. Each one first went out on LinkedIn.</h2>
         </div>
-        <ol class="issue-list" reversed>
+        <ol class="rows rise" reversed>
 <!-- ISSUES:START -->
-          <li>
-            <a class="issue-row" href="/writing/your-b2b-youtube-channel-is-a-parking-lot.html">
-              <span class="ir-num">12</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2026-05-12">12 May 2026</time> · 3 min read</span>
-                <span class="ir-title">Your B2B client&#x27;s YouTube channel is a parking lot</span>
-                <span class="ir-excerpt">Most of the B2B clients I have worked with this year have a YouTube channel. Almost none of them are using it. They are decorating it. There is a difference…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/what-the-previous-agency-did-not-deliver-means.html">
-              <span class="ir-num">11</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2026-05-09">9 May 2026</time> · 3 min read</span>
-                <span class="ir-title">What &quot;the previous agency did not deliver&quot; really means</span>
-                <span class="ir-excerpt">Most prospects who land on a call with me this year arrived with some version of the same opening line. The previous agency did not deliver. The previous…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/questions-to-ask-a-marketing-agency-before-hiring.html">
-              <span class="ir-num">10</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-04-05">5 April 2025</time> · 4 min read</span>
-                <span class="ir-title">7 Questions You Should Ask Any Marketing Agency Before You Hire Them</span>
-                <span class="ir-excerpt">Thinking about hiring a marketing agency but not sure how to sort the mediocre from the magnificent? It’s a big decision - after all, these folks could shape…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/why-your-brand-isnt-going-viral.html">
-              <span class="ir-num">09</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-04-01">1 April 2025</time> · 4 min read</span>
-                <span class="ir-title">Why Your Brand Isn’t Going Viral (And What to Do About It)</span>
-                <span class="ir-excerpt">Ever wonder why some brands explode all over social media while yours struggles to get a handful of likes? It’s easy to blame algorithms, saturated markets, or…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/why-some-brands-shouldnt-hire-a-marketing-agency.html">
-              <span class="ir-num">08</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-03-28">28 March 2025</time> · 6 min read</span>
-                <span class="ir-title">Why Some Brands Shouldn’t Hire a Marketing Agency (Even If I Run One)</span>
-                <span class="ir-excerpt">I know this might sound crazy coming from someone who runs a marketing agency, but here’s the truth: not every brand should hire us—or any other agency for…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/does-facebook-matter-for-marketing-in-india.html">
-              <span class="ir-num">07</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-02-22">22 February 2025</time> · 1 min read</span>
-                <span class="ir-title">Does Facebook Even Matter for Marketing in India?</span>
-                <span class="ir-excerpt">I get this question at least once a week: “Isn’t Facebook on its way out, especially in India?” With the rise of Instagram, YouTube, and TikTok (yes, even with…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/why-your-social-media-management-doesnt-work.html">
-              <span class="ir-num">06</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-02-19">19 February 2025</time> · 1 min read</span>
-                <span class="ir-title">Why Your Brand’s Social Media Management Doesn’t Work</span>
-                <span class="ir-excerpt">Let me guess: You’ve got a social media manager (or an entire team) pumping out content left and right, yet the results are… underwhelming. Likes and comments…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/how-elon-musk-ruined-verification.html">
-              <span class="ir-num">05</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-02-15">15 February 2025</time> · 1 min read</span>
-                <span class="ir-title">How Elon Musk Ruined Verification on Social Media</span>
-                <span class="ir-excerpt">If you remember a time when getting that precious blue checkmark on Twitter actually meant something, then you know exactly what changed once Elon Musk decided…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/lead-generation-in-2025.html">
-              <span class="ir-num">04</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-02-12">12 February 2025</time> · 4 min read</span>
-                <span class="ir-title">This is How You Should Do Lead Generation in 2025</span>
-                <span class="ir-excerpt">Let’s cut straight to the chase: Everyone’s talking about how the future of lead generation is going to be “revolutionized” by AI, chatbots, and who-knows-what…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/is-your-marketing-agency-lying-to-you.html">
-              <span class="ir-num">03</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-02-09">9 February 2025</time> · 4 min read</span>
-                <span class="ir-title">How to Spot If Your Marketing Agency Is Lying to You</span>
-                <span class="ir-excerpt">Let’s talk about something that’s too often swept under the rug: how do you know if your marketing agency is being straight with you—or, well, not so straight?</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/marketing-trends-i-hate-but-they-work.html">
-              <span class="ir-num">02</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-02-05">5 February 2025</time> · 2 min read</span>
-                <span class="ir-title">5 Marketing Trends I Hate (But They Just Work)</span>
-                <span class="ir-excerpt">Ever feel your eyes roll at the latest marketing buzz—but then you notice that buzz is actually driving serious ROI? Trust me, I’ve been there. Here are five…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="issue-row" href="/writing/scaling-a-digital-marketing-agency-in-india.html">
-              <span class="ir-num">01</span>
-              <span class="ir-main">
-                <span class="ir-date"><time datetime="2025-02-02">2 February 2025</time> · 4 min read</span>
-                <span class="ir-title">Let me try and prepare you for challenges you will face with scaling your digital marketing agency</span>
-                <span class="ir-excerpt">Scaling a digital marketing agency in India is a bit like trying to ride a roller coaster and solve a Rubik’s cube at the same time—blindfolded. One minute…</span>
-              </span>
-              <span class="ir-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-ur"/></svg></span>
-            </a>
-          </li>
+          <li><a href="/writing/your-b2b-youtube-channel-is-a-parking-lot.html">
+            <span class="n">12</span>
+            <span class="main">
+              <span class="meta"><time datetime="2026-05-12">12 May 2026</time> · 3 min read</span>
+              <h3>Your B2B client&#x27;s YouTube channel is a parking lot</h3>
+              <span class="ex">Most of the B2B clients I have worked with this year have a YouTube channel. Almost none of them are using it. They are decorating it. There is a difference…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/what-the-previous-agency-did-not-deliver-means.html">
+            <span class="n">11</span>
+            <span class="main">
+              <span class="meta"><time datetime="2026-05-09">9 May 2026</time> · 3 min read</span>
+              <h3>What &quot;the previous agency did not deliver&quot; really means</h3>
+              <span class="ex">Most prospects who land on a call with me this year arrived with some version of the same opening line. The previous agency did not deliver. The previous…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/questions-to-ask-a-marketing-agency-before-hiring.html">
+            <span class="n">10</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-04-05">5 April 2025</time> · 4 min read</span>
+              <h3>7 Questions You Should Ask Any Marketing Agency Before You Hire Them</h3>
+              <span class="ex">Thinking about hiring a marketing agency but not sure how to sort the mediocre from the magnificent? It’s a big decision - after all, these folks could shape…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/why-your-brand-isnt-going-viral.html">
+            <span class="n">09</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-04-01">1 April 2025</time> · 4 min read</span>
+              <h3>Why Your Brand Isn’t Going Viral (And What to Do About It)</h3>
+              <span class="ex">Ever wonder why some brands explode all over social media while yours struggles to get a handful of likes? It’s easy to blame algorithms, saturated markets, or…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/why-some-brands-shouldnt-hire-a-marketing-agency.html">
+            <span class="n">08</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-03-28">28 March 2025</time> · 6 min read</span>
+              <h3>Why Some Brands Shouldn’t Hire a Marketing Agency (Even If I Run One)</h3>
+              <span class="ex">I know this might sound crazy coming from someone who runs a marketing agency, but here’s the truth: not every brand should hire us—or any other agency for…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/does-facebook-matter-for-marketing-in-india.html">
+            <span class="n">07</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-02-22">22 February 2025</time> · 1 min read</span>
+              <h3>Does Facebook Even Matter for Marketing in India?</h3>
+              <span class="ex">I get this question at least once a week: “Isn’t Facebook on its way out, especially in India?” With the rise of Instagram, YouTube, and TikTok (yes, even with…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/why-your-social-media-management-doesnt-work.html">
+            <span class="n">06</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-02-19">19 February 2025</time> · 1 min read</span>
+              <h3>Why Your Brand’s Social Media Management Doesn’t Work</h3>
+              <span class="ex">Let me guess: You’ve got a social media manager (or an entire team) pumping out content left and right, yet the results are… underwhelming. Likes and comments…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/how-elon-musk-ruined-verification.html">
+            <span class="n">05</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-02-15">15 February 2025</time> · 1 min read</span>
+              <h3>How Elon Musk Ruined Verification on Social Media</h3>
+              <span class="ex">If you remember a time when getting that precious blue checkmark on Twitter actually meant something, then you know exactly what changed once Elon Musk decided…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/lead-generation-in-2025.html">
+            <span class="n">04</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-02-12">12 February 2025</time> · 4 min read</span>
+              <h3>This is How You Should Do Lead Generation in 2025</h3>
+              <span class="ex">Let’s cut straight to the chase: Everyone’s talking about how the future of lead generation is going to be “revolutionized” by AI, chatbots, and who-knows-what…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/is-your-marketing-agency-lying-to-you.html">
+            <span class="n">03</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-02-09">9 February 2025</time> · 4 min read</span>
+              <h3>How to Spot If Your Marketing Agency Is Lying to You</h3>
+              <span class="ex">Let’s talk about something that’s too often swept under the rug: how do you know if your marketing agency is being straight with you—or, well, not so straight?</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/marketing-trends-i-hate-but-they-work.html">
+            <span class="n">02</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-02-05">5 February 2025</time> · 2 min read</span>
+              <h3>5 Marketing Trends I Hate (But They Just Work)</h3>
+              <span class="ex">Ever feel your eyes roll at the latest marketing buzz—but then you notice that buzz is actually driving serious ROI? Trust me, I’ve been there. Here are five…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
+          <li><a href="/writing/scaling-a-digital-marketing-agency-in-india.html">
+            <span class="n">01</span>
+            <span class="main">
+              <span class="meta"><time datetime="2025-02-02">2 February 2025</time> · 4 min read</span>
+              <h3>Let me try and prepare you for challenges you will face with scaling your digital marketing agency</h3>
+              <span class="ex">Scaling a digital marketing agency in India is a bit like trying to ride a roller coaster and solve a Rubik’s cube at the same time—blindfolded. One minute…</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+          </a></li>
           <!-- ISSUES:END -->
         </ol>
       </div>
     </section>
-
-    <!-- CHAPTER 01: WHY LINKEDIN -->
-    <section class="chapter">
-      <div class="container chapter-grid">
-        <div class="ch-num">01</div>
-        <div class="ch-head">
-          <div class="ch-label">Where it lives</div>
-          <h2>Written for LinkedIn, <span class="italic-serif">kept here</span>.</h2>
+    <section class="section" aria-labelledby="lives-h">
+      <div class="wrap chapter" data-reveal>
+        <div class="chapter-head rise">
+          <span class="label">Where it lives</span>
+          <h2 id="lives-h" class="h2">Written for LinkedIn, <span class="hl">kept here</span>.</h2>
         </div>
-        <div class="ch-body">
+        <div class="chapter-body prose rise">
           <p>New issues go out on LinkedIn first, because that is where the readers are and where the conversation happens in the comments. Every issue is then kept here too, so the archive stays easy to find, easy to search, and in one place.</p>
         </div>
       </div>
     </section>
-
-    <!-- WORD MARQUEE -->
-    <section class="word-marquee" aria-hidden="true">
-      <div class="wm-track">
-        <span>Agency life</span><span class="hot">×</span>
-        <span>Marketing craft</span><span class="hot">×</span>
-        <span>Pricing</span><span class="hot">×</span>
-        <span>Hiring</span><span class="hot">×</span>
-        <span>Founder notes</span><span class="hot">×</span>
-        <span>Services business</span><span class="hot">×</span>
-        <span>Agency life</span><span class="hot">×</span>
-        <span>Marketing craft</span><span class="hot">×</span>
-        <span>Pricing</span><span class="hot">×</span>
-        <span>Hiring</span><span class="hot">×</span>
-        <span>Founder notes</span><span class="hot">×</span>
-        <span>Services business</span><span class="hot">×</span>
+    <section class="section" aria-labelledby="inside-h">
+      <div class="wrap" data-reveal>
+        <div class="section-head">
+          <span class="label rise" style="grid-column:1/-1">What's inside</span>
+          <h2 id="inside-h" class="h-section rise">Field notes from the <span class="hl">work</span>.</h2>
+        </div>
+        <ol class="approach" style="margin:0;padding:0;list-style:none">
+          <li class="rise">
+            <span class="idx">01</span>
+            <span class="name sm">Agency life.</span>
+            <div class="body"><p>What running a small agency actually looks like from the inside. Retainers, pricing, client dynamics, hiring — the stuff nobody puts in a case study.</p></div>
+          </li>
+          <li class="rise">
+            <span class="idx">02</span>
+            <span class="name sm">Marketing craft.</span>
+            <div class="body"><p>Paid, organic, SEO, content. What's working, what's overhyped, and the short honest version of why.</p></div>
+          </li>
+          <li class="rise">
+            <span class="idx">03</span>
+            <span class="name sm">Business, practically.</span>
+            <div class="body"><p>Building a services business from Bhopal, serving clients in four countries. The operating choices and the tradeoffs behind them.</p></div>
+          </li>
+          <li class="rise">
+            <span class="idx">04</span>
+            <span class="name sm">Founder notes.</span>
+            <div class="body"><p>Slightly more personal. What the work teaches, what Saurabh is reading, and the things he is figuring out a year into running his own.</p></div>
+          </li>
+        </ol>
       </div>
     </section>
-
-    <!-- CHAPTER 02: WHAT YOU'LL FIND -->
-    <section class="chapter">
-      <div class="container chapter-grid">
-        <div class="ch-num">02</div>
-        <div class="ch-head">
-          <div class="ch-label">What's inside</div>
-          <h2>Field notes from the <span class="italic-serif">work</span>.</h2>
-        </div>
-        <div class="ch-body">
-          <div class="manifesto">
-            <div class="m-row">
-              <div class="m-n">01</div>
-              <div class="m-text"><strong>Agency life.</strong> What running a small agency actually looks like from the inside. Retainers, pricing, client dynamics, hiring — the stuff nobody puts in a case study.</div>
-            </div>
-            <div class="m-row">
-              <div class="m-n">02</div>
-              <div class="m-text"><strong>Marketing craft.</strong> Paid, organic, SEO, content. What's working, what's overhyped, and the short honest version of why.</div>
-            </div>
-            <div class="m-row">
-              <div class="m-n">03</div>
-              <div class="m-text"><strong>Business, practically.</strong> Building a services business from Bhopal, serving clients in four countries. The operating choices and the tradeoffs behind them.</div>
-            </div>
-            <div class="m-row">
-              <div class="m-n">04</div>
-              <div class="m-text"><strong>Founder notes.</strong> Slightly more personal. What the work teaches, what Saurabh is reading, and the things he is figuring out a year into running his own.</div>
-            </div>
-          </div>
-        </div>
+    <section class="section">
+      <div class="wrap pull" data-reveal>
+        <blockquote class="rise">Written when there is something real to say <span class="hl">— not when a content calendar says so.</span></blockquote>
+        <div class="sig label rise">Building Momentum</div>
       </div>
     </section>
-
-    <!-- BIG PULL -->
-    <section class="big-pull">
-      <div class="container">
-        <blockquote>
-          <p>Written when there is something real to say <span class="italic-serif">— not when a content calendar says so.</span></p>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- READ CTA -->
-    <section class="chapter">
-      <div class="container chapter-grid">
-        <div class="ch-num" aria-hidden="true">→</div>
-        <div class="ch-head">
-          <div class="ch-label">Read</div>
-          <h2>Building Momentum lives <span class="italic-serif">on LinkedIn</span>.</h2>
+    <section class="section" aria-labelledby="read-h">
+      <div class="wrap chapter" data-reveal>
+        <div class="chapter-head rise">
+          <span class="label">Read</span>
+          <h2 id="read-h" class="h2">Building Momentum lives <span class="hl">on LinkedIn</span>.</h2>
         </div>
-        <div class="ch-body">
+        <div class="chapter-body prose rise">
           <p>One click, no signup gymnastics. If you're already on LinkedIn, subscribing takes a second.</p>
-          <p style="margin-top:28px;">
-            <a class="btn btn-primary btn-xl cta" href="https://www.linkedin.com/newsletters/building-momentum-7291532655647436800/" target="_blank" rel="noopener">
-              <svg width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg>
-              Read on LinkedIn
-              <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
-            </a>
-          </p>
+          <p style="margin-top:28px"><a class="btn" style="text-decoration:none;color:var(--on-accent)" href="https://www.linkedin.com/newsletters/building-momentum-7291532655647436800/" target="_blank" rel="noopener">Read on LinkedIn <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></p>
         </div>
       </div>
     </section>
-
-    <!-- CTA BAND -->
-    <section class="cta-band">
-      <div class="container">
-        <div class="eyebrow">Got something to talk about</div>
-        <h2>Got something to <span class="italic-serif">talk about</span>?</h2>
-        <p>Thirty minutes, direct with Saurabh. No slides, no sales pitch.</p>
-        <a class="cta-btn" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">
-          Book a 30-min call
-          <span class="chip" aria-hidden="true"><svg><use href="#i-arrow-ur"/></svg></span>
-        </a>
-        <div class="small-note">Thirty minutes <span class="dot"></span> Direct with Saurabh <span class="dot"></span> No slides</div>
+    <section class="closing" aria-labelledby="closing-h">
+      <div class="wrap" data-reveal>
+        <h2 id="closing-h" class="display sm rise">Got something to <span class="hl">talk about</span>?</h2>
+        <p class="lede rise">Thirty minutes, direct with Saurabh. No slides, no sales pitch.</p>
+        <div class="closing-row rise">
+          <a class="btn" href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener">Book a 30-min call <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+          <span class="label">Thirty minutes · Direct with Saurabh · No slides</span>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-close">
-        <p class="statement">Make work that <em>compounds.</em></p>
-        <div class="cta-col">
-          <a href="https://zcal.co/opusmomentum/meet" target="_blank" rel="noopener" class="f-cta">
-            <span>Start a conversation</span>
-            <span class="chip" aria-hidden="true"><svg width="14" height="14"><use href="#i-arrow-ur"/></svg></span>
-          </a>
-          <p class="cta-note">30 min · zcal · no slides</p>
-        </div>
-      </div>
+  <footer class="site-footer">
+    <div class="wrap">
       <div class="footer-grid">
-        <div class="footer-col footer-brand">
-          <img src="/assets/img/logo/wordmark.png" alt="Saurabh Tripathi" width="140" height="36" />
-          <p>Digital marketer. Builder. Founder of Opus Momentum. Based in Bhopal, working across time zones.</p>
-          <p class="avail"><span class="dot" aria-hidden="true"></span> Open for new projects</p>
+        <div class="footer-statement">
+          <p class="s">Make work that <em>compounds.</em></p>
+          <span class="sig">A note from Saurabh</span>
+          <p class="bio">Digital marketer and founder of Opus Momentum. Based in Bhopal, working with clients across India, the US, and Australia.</p>
         </div>
         <div class="footer-col">
-          <h4 class="f-label">Site</h4>
+          <span class="h">Site</span>
           <ul>
-            <li><a href="/">Home</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/work.html">Work</a></li>
             <li><a href="/opus-momentum.html">Opus Momentum</a></li>
@@ -383,38 +296,32 @@
             <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4 class="f-label">Contact</h4>
+        <div class="footer-col contact">
+          <span class="h">Contact</span>
           <ul>
-            <li><a href="mailto:saurabh@opusmomentum.com">saurabh@opusmomentum.com</a></li>
-            <li><a href="mailto:contact@saurabhtripathi.in">contact@saurabhtripathi.in</a></li>
-            <li><a href="tel:+919238175836">+91 92381 75836</a></li>
-            <li><span style="color:rgba(255,255,255,0.5);">Bhopal, India</span></li>
+            <li><a href="mailto:saurabh@opusmomentum.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>saurabh@opusmomentum.com</a></li>
+            <li><a href="mailto:contact@saurabhtripathi.in"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>contact@saurabhtripathi.in</a></li>
+            <li><a href="tel:+919238175836"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>+91 92381 75836</a></li>
+            <li><span class="meta"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Bhopal · IST (UTC+5:30)</span></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 class="f-label">Elsewhere</h4>
+          <span class="h">Elsewhere</span>
           <ul>
-            <li><a href="https://www.linkedin.com/in/saurabhtripathionline/" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://www.linkedin.com/newsletters/building-momentum-7291532655647436800/" target="_blank" rel="noopener">Building Momentum</a></li>
-            <li><a href="https://opusmomentum.com" target="_blank" rel="noopener">opusmomentum.com</a></li>
+            <li><a href="https://www.linkedin.com/in/saurabhtripathionline/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/newsletters/building-momentum-7291532655647436800/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-newspaper"/></svg>Building Momentum</a></li>
+            <li><a href="https://opusmomentum.com" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg>opusmomentum.com</a></li>
           </ul>
         </div>
       </div>
       <div class="colophon">
-        <span>&copy; 2026 Saurabh Tripathi</span>
-        <span class="sep">·</span>
-        <span>Opus Momentum Digital LLP</span>
-        <span class="sep">·</span>
-        <span>Built plain, hosted on GitHub Pages</span>
-        <span class="sep">·</span>
-        <span><a href="/privacy.html">Privacy</a></span>
+        <span>&copy; 2026 Saurabh Tripathi · Opus Momentum Digital LLP</span>
+        <span>Built plain · GitHub Pages · <a href="/privacy.html">Privacy</a></span>
       </div>
     </div>
   </footer>
 
-  <script defer src="/assets/js/main.js"></script>
-  <script defer src="/assets/js/motion.js"></script>
+  <script defer src="/assets/js/studio.js"></script>
   <script defer src="/assets/js/cookie-banner.js"></script>
 </body>
 </html>
